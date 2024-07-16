@@ -1,0 +1,44 @@
+#spring.application.name=241DSWSpringMSDemo01Gateway
+server:
+  port: 8080
+
+spring:
+  config:
+    import: optional:configserver:http://localhost:8888  
+  application:
+    name: 241CC341SpringMSDemo01GatewayD
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: personas
+          uri: 'http://localhost:6090'
+          predicates:
+            - Path=/api/persona/**
+        - id: usuarios
+          uri: 'http://localhost:7090'
+          predicates:
+            - Path=/api/usuario/**
+        - id: ubigeos
+          uri: 'http://localhost:8090'
+          predicates:
+            - Path=/api/ubigeo/**
+        - id: tests
+          uri: 'http://localhost:9090'
+          predicates:
+            - Path=/api/test/**
+        - id: preguntas
+          uri: 'http://localhost:9091'
+          predicates:
+            - Path=/api/preguntas/**
+        - id: respuestas
+          uri: 'http://localhost:9092'
+          predicates:
+            - Path=/api/respuestas/**
+            
+            
+eureka:
+   client:
+       register-with-eureka: false

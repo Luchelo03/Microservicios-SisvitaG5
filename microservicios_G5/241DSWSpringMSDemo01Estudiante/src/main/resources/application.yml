@@ -1,0 +1,25 @@
+#spring.application.name=241DSWSpringMSDemo01Usuario
+server:
+  port: 6090
+spring:
+  application:
+    name: 241DSWSpringMSDemo01Estudiante
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost/BD_sisvitaG5
+    username: postgres
+    password: BaseDeDatosSEGURA
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 6090
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
